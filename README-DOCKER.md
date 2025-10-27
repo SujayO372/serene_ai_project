@@ -1,7 +1,3 @@
-Got it — here’s a tight, copy-pasteable **Docker deployment guide** that assumes your repo already contains working configs (`docker-compose.yml`, `reverse-proxy/nginx.https.conf`, `certbot/`, `letsencrypt/`, etc.). No edits to configs are required.
-
----
-
 # Deploy / Undeploy with Docker
 
 ## Prerequisites

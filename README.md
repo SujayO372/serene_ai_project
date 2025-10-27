@@ -1,33 +1,3 @@
-Great question—short answer first, then a ready-to-drop-in README for running your app **without Docker** in dev.
-
-## Should you separate the frontend and backend?
-
-**Yes—keep them as separate services** (as you already do with `/frontend` and `/backend`). That doesn’t mean separate repos (unless you want to); a mono-repo with clear folders is perfectly fine.
-
-**Why it helps**
-
-* **Independent build/release**: ship UI fixes without touching the API (and vice-versa).
-* **Scaling/ops**: scale API differently than the static frontend; easier rollbacks.
-* **Security boundaries**: API can sit behind stricter rules; static assets via CDN.
-* **Clear contracts**: versioned API, easier testing (frontend can mock the API).
-* **Tooling fit**: Vite/Node for UI; Python tooling for API—no compromises.
-
-**Trade-offs**
-
-* You’ll handle **CORS** or a **dev proxy**.
-* You’ll manage **version compatibility** between UI and API (solve with simple semver + `/v1` routes or a feature flag).
-
-**Recommendation for your setup**
-
-* Keep the current **mono-repo** (`/frontend`, `/backend`).
-* For Docker, use two compose files:
-
-  * `docker-compose.dev.yml` (no certbot/nginx, hot-reload both services).
-  * `docker-compose.prod.yml` (reverse-proxy + TLS).
-* For local dev **without Docker**, run both services directly (guide below). Use a **Vite proxy** so the UI can call the API without CORS headaches.
-
----
-
 # README — Developer Setup (No Docker)
 
 > This guide runs the Python backend and the Vite frontend **directly** on your machine (no containers). Ideal for fast iteration with hot reload.

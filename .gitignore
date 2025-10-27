@@ -3,3 +3,42 @@
 .env
 *.env.local
 .env.*.local
+# --- Python backend ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.eggs/
+build/
+dist/
+.env
+.env.*
+.venv/
+venv/
+instance/
+*.log
+
+# --- Node / Frontend (Vite, npm, etc.) ---
+node_modules/
+dist/
+build/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+vite.config.ts.timestamp-*
+*.tsbuildinfo
+
+# --- IDE & OS files ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Certificates / Secrets ---
+letsencrypt/
+certbot/www/
+certbot/renew.sh
+certbot-renew.sh
